@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  .overlayBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #2F4054 0%, #2F353D 100%);
+    opacity: 0.7;
+    z-index: 1;
+  }
+}
