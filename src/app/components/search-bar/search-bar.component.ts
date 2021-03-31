@@ -1,6 +1,13 @@
 import {
   Component,
   ElementRef,
+<<<<<<< HEAD
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core'
+// import menuItems from '../../menuItems.json'
+=======
   Input,
   OnInit,
   Output,
@@ -9,6 +16,7 @@ import {
   EventEmitter,
   SimpleChange
 } from '@angular/core'
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
 
 @Component({
   selector: 'search-bar',
@@ -16,7 +24,11 @@ import {
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
+<<<<<<< HEAD
+  constructor(public el: ElementRef) {}
+=======
   constructor(public el: ElementRef) { }
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
 
   menuItems = [
     {
@@ -40,10 +52,13 @@ export class SearchBarComponent implements OnInit {
 
   @ViewChild('searchResultElement') searchResultElement: any
   @ViewChild(TemplateRef) overlay: any
+<<<<<<< HEAD
+=======
   @ViewChild('searchInput') searchInput?: HTMLInputElement | null
   @Input() search?: string = ""
   @Input() type?: string
   @Output() value = new EventEmitter();
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   hideResults() {
     if (window.innerWidth < 768) return
     setTimeout(() => {
@@ -52,7 +67,10 @@ export class SearchBarComponent implements OnInit {
         this.searchResultElement.nativeElement.style.display = 'none'
       }, 300)
     }, 300)
+<<<<<<< HEAD
+=======
     this.resetSearch();
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   }
   showResults() {
     this.searchResultElement.nativeElement.style.display = 'inline-block'
@@ -60,6 +78,9 @@ export class SearchBarComponent implements OnInit {
   }
 
   filterSearch(el: any) {
+<<<<<<< HEAD
+    if (el == null) return
+=======
     this.value.emit(el.target.value)
 
     if (window.innerWidth < 1000) return
@@ -68,6 +89,7 @@ export class SearchBarComponent implements OnInit {
     if (!el.target) {
       return
     }
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
 
     if (el.target.value.trim().length == 0) {
       this.searchResults.length = 0
@@ -83,6 +105,13 @@ export class SearchBarComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
+  closeSearch() {
+    this.el.nativeElement.style.display = 'none'
+  }
+  ngOnInit(): void {}
+  ngAfterViewInit() {}
+=======
   ngOnChanges(e: SimpleChange) {
     if (this.search?.trim().length == 0) {
       this.searchResults.length = 0
@@ -113,4 +142,5 @@ export class SearchBarComponent implements OnInit {
 
   }
   ngAfterViewInit() { }
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
 }

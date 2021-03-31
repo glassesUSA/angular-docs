@@ -14,17 +14,24 @@
   transition: 0.3s all;
   font-size: 14px;
   line-height: 16px;
+<<<<<<< HEAD
+  height: 48px;
+=======
   height: 44px;
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   padding-right: 50px;
   width: 100%;
 
   &:focus {
     border: 1px solid rgba(188, 188, 188, 0.4);
     border-radius: 5px 5px 0 0;
+<<<<<<< HEAD
+=======
 
     @media (max-width: 1000px) {
       border-radius: 0;
     }
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   }
 
   &:hover {
@@ -35,7 +42,11 @@
     color: #7D7878;
   }
 
+<<<<<<< HEAD
+  @media (max-width: 768px) {
+=======
   @media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     height: 69px;
     font-size: 18px;
     border-radius: 0;
@@ -53,7 +64,11 @@
 .searchResults {
   display: inline-block;
   position: absolute;
+<<<<<<< HEAD
+  top: 48px;
+=======
   top: 44px;
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   background: #FFFFFF;
   box-sizing: border-box;
   border-radius: 0px 0px 5px 5px;
@@ -66,7 +81,11 @@
   line-height: 21px;
   color: #000000;
 
+<<<<<<< HEAD
+  @media (max-width: 768px) {
+=======
   @media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     top: 69px;
     display: none;
     font-size: 18px;
@@ -78,7 +97,11 @@
 .searchArrow {
   display: none;
 
+<<<<<<< HEAD
+  @media (max-width: 768px) {
+=======
   @media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     display: block;
     position: absolute;
     right: 25px;
@@ -93,7 +116,11 @@
   font-weight: 300;
   font-size: 12px;
 
+<<<<<<< HEAD
+  @media (max-width: 768px) {
+=======
   @media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     font-size: 12px;
   }
 }
@@ -123,7 +150,11 @@
   position: relative;
   width: 269px;
 
+<<<<<<< HEAD
+  @media (max-width: 768px) {
+=======
   @media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     width: 100%;
     position: fixed;
     top: 0;
@@ -136,11 +167,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+<<<<<<< HEAD
+  right: 25px;
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 21px;
+=======
   right: 15px;
 
   @media (max-width: 1000px) {
     width: 20px;
     height: 21px;
     right: 25px;
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   }
 }
