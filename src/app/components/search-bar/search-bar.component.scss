@@ -1,0 +1,146 @@
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 11px 0px 11px 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(188, 188, 188, 0.25);
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  transition: 0.3s all;
+  font-size: 14px;
+  line-height: 16px;
+  height: 44px;
+  padding-right: 50px;
+  width: 100%;
+
+  &:focus {
+    border: 1px solid rgba(188, 188, 188, 0.4);
+    border-radius: 5px 5px 0 0;
+
+    @media (max-width: 1000px) {
+      border-radius: 0;
+    }
+  }
+
+  &:hover {
+    border: 1px solid rgba(188, 188, 188, 0.4);
+  }
+
+  ::placeholder {
+    color: #7D7878;
+  }
+
+  @media (max-width: 1000px) {
+    height: 69px;
+    font-size: 18px;
+    border-radius: 0;
+    padding: 0 25px;
+    padding-right: 70px;
+    box-shadow: 2px 1px 5px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+.noResults {
+  pointer-events: none;
+}
+
+.searchResults {
+  display: inline-block;
+  position: absolute;
+  top: 44px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 0px 0px 5px 5px;
+  font-family: Roboto;
+  font-style: normal;
+  transition: 0.3s all;
+  font-weight: normal;
+  font-size: 16px;
+  width: 100%;
+  line-height: 21px;
+  color: #000000;
+
+  @media (max-width: 1000px) {
+    top: 69px;
+    display: none;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 0px 0px 4px 4px;
+  }
+}
+
+.searchArrow {
+  display: none;
+
+  @media (max-width: 1000px) {
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.searchBreadcrumb {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+
+  @media (max-width: 1000px) {
+    font-size: 12px;
+  }
+}
+
+.searchItem:first-child {
+  border-top: none;
+}
+
+.searchItem {
+  border: 1px solid rgba(188, 188, 188, 0.4);
+  border-bottom: none;
+  padding: 18px 20px;
+  position: relative;
+  transition: 0.2s all;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(188, 188, 188, 0.4);
+  }
+
+  &:last-child {
+    border-bottom: 1px solid rgba(188, 188, 188, 0.4);
+  }
+}
+
+.searchBoxContainer {
+  position: relative;
+  width: 269px;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    left: 0;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+
+  @media (max-width: 1000px) {
+    width: 20px;
+    height: 21px;
+    right: 25px;
+  }
+}

@@ -1,0 +1,33 @@
+<page-header title="Getting Started" breadcrumb="Getting Started /"
+  subtitle="Learn how to include the styling in your project."></page-header>
+
+<div class="smallTitle">Usage</div>
+To install the styling and scripts, include the following code in the
+
+<code-box [inline]=true>
+
+  <head></head>
+</code-box> section of your project.
+<code-box>
+  &lt;!-- CSS Styling --><br>
+  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/glassesUSA/dsm@latest/dist/styles.css"&gt;<p></p>
+  &lt;!-- Scripts - Required if you are using any form elements/buttons--> <br>
+  &lt;script type="module" src="https://cdn.jsdelivr.net/gh/glassesUSA/dsm@latest/dist/dsm-effects.js">&lt;/script>
+</code-box>
+Additionally, in order to use the widgets with Swiper functionality such as the trustpilot widgets, include this script
+tag.
+
+<code-box>
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.14/swiper-bundle.min.js"
+  integrity="sha512-APQL/QFRDoEBh9V5ztds1P6qEICllWq9Dpcv+pVu5DE/g5MZ1GE7+pj9tHhN1SFBv4J7B2j5mfw0cOUitz+aGg=="
+  crossorigin="anonymous">&lt;/script>
+</code-box>
+If you cannot include scripts in the head tag, use the following script to include the files into your document.
+<code-box language="javascript">
+  <pre>&lt;script>
+    var insertScript = document.createElement("script");
+    insertScript.src = 'https://cdn.jsdelivr.net/gh/glassesUSA/dsm@latest/dist/dsm-effects.js'
+    insertScript.type = 'module'
+    document.head.appendChild(insertScript)
+&lt;/script></pre>
+</code-box>
