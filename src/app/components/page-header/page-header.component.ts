@@ -4,16 +4,17 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'page-header',
   template: `
     <div class="splitColumn">
-      <div class="breadCrumb">{{breadcrumb}}</div>
+      <div class="breadCrumb">{{breadcrumb}}<span class="currentPage"> {{currentPage}}</span></div>
       <search-bar></search-bar>
     </div>
-    <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>`,
+    <ng-container *ngIf="subtitle">
+    <div class="smallTitle">Usage</div>
+    <div class="usageDesc">{{subtitle}}</div></ng-container>`,
   styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent implements OnInit {
   @Input() breadcrumb!: string
-  @Input() title!: string
+  @Input() currentPage!: string
   @Input() subtitle?: string
   constructor() { }
 

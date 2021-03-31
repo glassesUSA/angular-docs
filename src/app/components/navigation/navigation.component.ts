@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, OnInit, Output, ViewChild, EventEmitter, Inject } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs/operators'
 
 @Component({
@@ -9,29 +9,35 @@ import { filter } from 'rxjs/operators'
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-  componentsActive = true;
+  componentsActive = false;
   searchOpen = false;
   searchClose = false;
   menuOpen = false;
-  effectTriggered = true
+  effectTriggered = false
   menuClose = false;
   defaultValue = ""
+  menuTransition = false
 
   constructor(@Inject(DOCUMENT) private document: Document, public router: Router) { }
 
-  // ngOnInit() {
-  //   this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(({ url }) => {
-
-  //     if (url.includes("components")) {
-  //       this.componentsActive = true;
-  //       if (!this.effectTriggered) {
-  //         this.effectTriggered = true
-  //       }
-  //     } else {
-  //       this.effectTriggered = false
-  //     }
-  //   });
-  // }
+  ngOnInit() {
+    // this.router.events.pipe(filter((e): e is NavigationStart => e instanceof NavigationStart)).subscribe(({ url }) => {
+    //   this.menuTransition = true;
+    // });
+    this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(({ url }) => {
+      // setTimeout(() => {
+      //   this.menuTransition = false;
+      // }, 500);
+      if (url.includes("components")) {
+        this.componentsActive = true;
+        if (!this.effectTriggered) {
+          this.effectTriggered = true
+        }
+      } else {
+        this.effectTriggered = false
+      }
+    });
+  }
 
   @Output() resetSearch = new EventEmitter<string>()
 
@@ -71,6 +77,7 @@ export class NavigationComponent {
   }
 
   navigate() {
+    this.menuTransition = true;
     if (window.innerWidth < 1000) {
       this.openMenu();
     }

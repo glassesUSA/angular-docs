@@ -7,17 +7,14 @@ import { IntroductionComponent } from './pages/introduction/introduction.compone
 const routes: Routes = [
   { path: '', component: IntroductionComponent, pathMatch: 'full' },
   { path: 'getting-started', component: GettingStartedComponent },
-  { path: 'components/cta-button', component: CtaButtonComponent },
-  { path: 'components', component: CtaButtonComponent },
   {
     path: 'components', children: [
       { path: 'cta-button', component: CtaButtonComponent },
       { path: 'round-button', component: CtaButtonComponent },
-      // { path: '**', redirectTo: 'components/cta-button', pathMatch: 'full' }
+      { path: '', redirectTo: 'cta-button', pathMatch: 'full' }
     ]
   },
-  { path: '**', component: IntroductionComponent, pathMatch: 'full' },
-
+  { path: '**', component: IntroductionComponent, pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule({

@@ -2,6 +2,11 @@
   background: #030622;
   height: 100vh;
   width: 280px;
+  transition: 0.5s width ease-out;
+
+  &.pageLoad {
+    width: 100vw;
+  }
 
   .dropdown .dropdownNav {
     margin-top: 0;
@@ -14,9 +19,9 @@
   }
 
   .dropdown {
-    border-left: 5px solid transparent;
+    border-left: none;
     padding: 0 !important;
-    transition: 1s border-left;
+
   }
 
   .nav {
@@ -43,8 +48,23 @@
     }
 
     .dropDownInner {
-      border-bottom: 1px solid rgba(86, 128, 176, 0.4);
+      border-bottom: 1px solid rgba(86, 128, 176, 0.4) !important;
+      font-weight: bold !important;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
+  }
+
+  .dropDownInner {
+    display: flex;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 15px 31px;
+    border-bottom: none;
+    color: white;
+    line-height: 21px;
   }
 
   .nav .dropdown {
@@ -55,6 +75,16 @@
       color: #D3D3D3;
       font-size: 16px;
       border-bottom: 1px solid rgba(86, 128, 176, 0.4);
+
+      &.dropDownInner {
+        display: flex;
+        font-weight: 300;
+        font-size: 18px;
+        padding: 15px 36px;
+        border-bottom: none;
+        color: white;
+        line-height: 21px;
+      }
 
       &.active {
         background-color: transparent;
@@ -107,7 +137,8 @@
     padding: 0;
     margin-top: 40px;
 
-    a {
+    a,
+    .dropdownContainer {
       display: block;
       text-decoration: none;
       font-family: Roboto;

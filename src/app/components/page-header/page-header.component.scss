@@ -1,31 +1,27 @@
-h1 {
-  font-style: normal;
+.smallTitle {
   font-weight: 500;
-  font-size: 28px;
-  line-height: 33px;
-  color: #0F0F0F;
-  margin: 0;
-  margin-bottom: 13px;
+  font-size: 18px;
+  line-height: 140.19%;
 }
 
-h2 {
-  font-family: Roboto;
-  font-style: normal;
-  margin: 0;
+.usageDesc {
+  max-width: 680px;
   font-weight: 300;
   font-size: 16px;
-  line-height: 150%;
-  color: #000000;
-  margin-bottom: 27px;
+  line-height: 175%;
+  margin-bottom: 40px;
 }
 
-
-.breadcrumb {
+.breadCrumb {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  color: #7D7878;
+  font-size: 25px;
+  line-height: normal;
+  color: #3A4850;
+}
+
+.currentPage {
+  color: #0F0F0F;
 }
 
 .splitColumn {
@@ -33,7 +29,9 @@ h2 {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  margin-bottom: 32px;
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #DEDEDE;
 }
 
 @media (max-width: 1000px) {

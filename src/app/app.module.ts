@@ -11,7 +11,8 @@ import { IntroductionComponent } from './pages/introduction/introduction.compone
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { CodeBoxComponent } from './components/code-box/code-box.component';
-import { CtaButtonComponent } from './pages/components/cta-button/cta-button.component'
+import { CtaButtonComponent } from './pages/components/cta-button/cta-button.component';
+import { TabsComponent } from './components/tabs/tabs.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CtaButtonComponent } from './pages/components/cta-button/cta-button.com
     PageHeaderComponent,
     CodeBoxComponent,
     CtaButtonComponent,
+    TabsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
