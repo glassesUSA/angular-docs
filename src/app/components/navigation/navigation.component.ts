@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, OnInit, Output, ViewChild, EventEmitter, Inject } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'navigation',
@@ -7,14 +9,29 @@ import { Component, OnInit, Output, ViewChild, EventEmitter, Inject } from '@ang
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-
-  constructor(@Inject(DOCUMENT) private document: Document) {
-  }
+  componentsActive = true;
   searchOpen = false;
   searchClose = false;
   menuOpen = false;
+  effectTriggered = true
   menuClose = false;
   defaultValue = ""
+
+  constructor(@Inject(DOCUMENT) private document: Document, public router: Router) { }
+
+  // ngOnInit() {
+  //   this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(({ url }) => {
+
+  //     if (url.includes("components")) {
+  //       this.componentsActive = true;
+  //       if (!this.effectTriggered) {
+  //         this.effectTriggered = true
+  //       }
+  //     } else {
+  //       this.effectTriggered = false
+  //     }
+  //   });
+  // }
 
   @Output() resetSearch = new EventEmitter<string>()
 
@@ -65,7 +82,5 @@ export class NavigationComponent {
 
   toolbarToggle(e) {
     console.log(e);
-
-
   }
 }

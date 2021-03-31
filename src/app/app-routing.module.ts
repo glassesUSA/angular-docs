@@ -5,13 +5,24 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 
 const routes: Routes = [
-  { path: '', component: IntroductionComponent },
+  { path: '', component: IntroductionComponent, pathMatch: 'full' },
   { path: 'getting-started', component: GettingStartedComponent },
-  { path: 'components', component: CtaButtonComponent }
+  { path: 'components/cta-button', component: CtaButtonComponent },
+  { path: 'components', component: CtaButtonComponent },
+  {
+    path: 'components', children: [
+      { path: 'cta-button', component: CtaButtonComponent },
+      { path: 'round-button', component: CtaButtonComponent },
+      // { path: '**', redirectTo: 'components/cta-button', pathMatch: 'full' }
+    ]
+  },
+  { path: '**', component: IntroductionComponent, pathMatch: 'full' },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
