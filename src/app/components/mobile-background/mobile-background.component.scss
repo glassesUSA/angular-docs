@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 @media (max-width: 768px) {
+=======
+@media (max-width: 1000px) {
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   .overlayBackground {
     position: fixed;
     top: 0;
     left: 0;
+<<<<<<< HEAD
     width: 100vw;
+=======
+    width: 100%;
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     height: 100vh;
     background: linear-gradient(180deg, #2F4054 0%, #2F353D 100%);
     opacity: 0.7;

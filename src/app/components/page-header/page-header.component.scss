@@ -1,0 +1,43 @@
+h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  color: #0F0F0F;
+  margin: 0;
+  margin-bottom: 13px;
+}
+
+h2 {
+  font-family: Roboto;
+  font-style: normal;
+  margin: 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+  margin-bottom: 27px;
+}
+
+
+.breadcrumb {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #7D7878;
+}
+
+.splitColumn {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1000px) {
+  search-bar {
+    display: none;
+  }
+}

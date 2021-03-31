@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
+=======
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  background-color: #F8F8F8;
+
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+pre {
+  margin: 0;
+}
+
+:host {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 140.19%;
+}
+
+.smallTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 11px;
+  line-height: 16px;
+}
+>>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
