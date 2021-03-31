@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<div class="codeBox" #codeBox>
-  <div class="codeContainer" #codeContainer [innerHTML]="codeContent">
-  </div>
-
-  <div class="codeEditorBox">
-    <div class="navButtons">
-      <svg class="resetButton" (click)="resetCode($event)" width="13" height="13" viewBox="0 0 15 15" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M14 1V5.33333H9.66667M13.2778 4.61111C12.2645 2.47333 10.0545 1 7.5 1C6.64641 1 5.80117 1.16813 5.01256 1.49478C4.22394 1.82144 3.50739 2.30022 2.90381 2.90381C2.30023 3.50739 1.82144 4.22394 1.49478 5.01256C1.16813 5.80117 1 6.64641 1 7.5C1 8.35359 1.16813 9.19883 1.49478 9.98744C1.82144 10.7761 2.30023 11.4926 2.90381 12.0962C3.50739 12.6998 4.22394 13.1786 5.01256 13.5052C5.80117 13.8319 6.64641 14 7.5 14V14C9.22391 14 10.8772 13.3152 12.0962 12.0962C13.3152 10.8772 14 9.22391 14 7.5L13.2778 4.61111Z"
-          stroke="#999999" stroke-width="2" />
-      </svg>
-      <svg class="copyButton" (click)="copyCode()" width="16" height="19" viewBox="0 0 16 19" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M11.7895 0H1.68421C0.757895 0 0 0.777273 0 1.72727V13.8182H1.68421V1.72727H11.7895V0ZM14.3158 3.45455H5.05263C4.12632 3.45455 3.36842 4.23182 3.36842 5.18182V17.2727C3.36842 18.2227 4.12632 19 5.05263 19H14.3158C15.2421 19 16 18.2227 16 17.2727V5.18182C16 4.23182 15.2421 3.45455 14.3158 3.45455ZM14.3158 17.2727H5.05263V5.18182H14.3158V17.2727Z"
-          fill="#999999" />
-      </svg>
-    </div>
-    <div class="codeEditor html" #codeEditor (input)="updateCode($event)" (click)="formatCode($event)"
-      contenteditable="true" [innerHTML]="currentCode"></div>
-=======
 <div class="codeWrapper" [ngClass]="{'inline': inline}">
   <svg *ngIf="!inline" class="copyButton" (click)="copyCode()" width="16" height="19" viewBox="0 0 16 19" fill="none"
     xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +7,5 @@
   </svg>
   <div class="codeBox {{language}}" #code [ngClass]="{'inline': inline}">
     <ng-content></ng-content>
->>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
   </div>
 </div>
