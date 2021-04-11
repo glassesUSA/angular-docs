@@ -10,11 +10,7 @@
           "style": "scss"
         },
         "@schematics/angular:application": {
-<<<<<<< HEAD
-          "strict": true
-=======
           "strict": false
->>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
         }
       },
       "root": "",
