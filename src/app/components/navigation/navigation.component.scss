@@ -4,24 +4,28 @@
   width: 280px;
   transition: 0.5s width ease-out;
 
+  @media (min-width: 1001px) {
+    overflow: auto;
+  }
+
   &.pageLoad {
     width: 100vw;
   }
 
   .dropdown .dropdownNav {
-    margin-top: 0;
+    margin: 10px 0;
+    margin: 0;
     overflow: hidden;
     max-height: 0;
   }
 
   .closeEffect {
-    animation: smoothClose 0.6s ease-in forwards;
+    animation: smoothClose 0.3s ease-in forwards;
   }
 
   .dropdown {
     border-left: none;
     padding: 0 !important;
-
   }
 
   .nav {
@@ -38,51 +42,120 @@
     flex-wrap: wrap;
   }
 
-  .dropdown.active {
-    padding: 0 !important;
-    border-left: 5px solid #617690;
-    background-color: rgba(152, 186, 237, 0.12) !important;
+  .dropDownInnerForm {
+    display: flex !important;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-    .openAnimation {
-      animation: smoothOpen 1s ease-in forwards;
+  .dropdownForm.active {
+    background-color: transparent !important;
+
+    .dropDownInnerForm {
+      font-weight: bold;
+      color: white !important;
+      pointer-events: none;
     }
 
-    .dropDownInner {
-      border-bottom: 1px solid rgba(86, 128, 176, 0.4) !important;
-      font-weight: bold !important;
+    .dropdownNav {
+      border-left: 1px solid #617690;
+      margin: 10px 0;
+      margin-left: 56px;
 
-      &:hover {
-        background-color: transparent;
+
+      a {
+        padding: 8px 16px;
+        transition: 0.3s color;
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: white;
+        }
+      }
+
+      @media (max-width: 1000px) {
+        margin-left: 0;
+        border-width: 4px;
+        border-top: rgba(62, 82, 105, 0.4) solid 1px;
+
+        a {
+          padding: 15px 40px;
+          border-top: none;
+        }
       }
     }
   }
 
-  .dropDownInner {
-    display: flex;
-    font-weight: 300;
-    font-size: 18px;
-    padding: 15px 31px;
-    border-bottom: none;
-    color: white;
-    line-height: 21px;
+  .dropdown.active {
+    padding: 0 !important;
+    background-color: rgba(152, 186, 237, 0.12);
+
+    .openAnimation {
+      animation: smoothOpen 0.5s ease-in forwards;
+    }
+
+    .dropdownNav {
+      padding-bottom: 13px;
+
+      @media (max-width: 1000px) {
+        padding-bottom: 0;
+      }
+    }
+
+    .dropDownInner {
+      color: white !important;
+      pointer-events: none;
+      font-weight: 500;
+    }
   }
+
+  .dropdownForm .dropdownNav {
+    padding-bottom: 0 !important;
+  }
+
 
   .nav .dropdown {
     a {
       display: block;
       text-decoration: none;
-      padding: 13px 46px;
+      padding: 10px 50px;
+      padding-right: 36px;
       color: #D3D3D3;
-      font-size: 16px;
-      border-bottom: 1px solid rgba(86, 128, 176, 0.4);
+      font-size: 15px;
+
+      @media (max-width: 1000px) {
+        padding: 25px 30px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
 
       &.dropDownInner {
         display: flex;
-        font-weight: 300;
         font-size: 18px;
         padding: 15px 36px;
+
+        @media (max-width: 1000px) {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          padding: 25px;
+        }
+
         border-bottom: none;
-        color: white;
         line-height: 21px;
       }
 
@@ -111,7 +184,7 @@
   }
 
   .closeDropdown {
-    animation: smoothOpen 1s ease-in forwards;
+    animation: smoothClose 0.5s ease-in forwards;
   }
 
   @keyframes smoothClose {
@@ -120,7 +193,7 @@
       max-height: 1000px;
     }
 
-    40% {
+    80% {
       opacity: 0;
     }
 
@@ -147,17 +220,19 @@
       font-size: 18px;
       padding: 15px 36px;
       line-height: 21px;
-      color: #FFFFFF;
+      color: #D3D3D3;
       cursor: pointer;
       transition: 0.3s background-color;
 
       &.active {
-        background-color: #607289;
+        font-weight: 500;
+        color: white;
+        background-color: rgba(152, 186, 237, 0.12);
       }
 
       @media (hover: hover) {
         &:hover {
-          background-color: #607289;
+          background-color: rgba(152, 186, 237, 0.12);
         }
       }
     }
@@ -374,7 +449,7 @@
           padding: 25px;
           border-top: transparent solid 1px;
           color: #FFFFFF;
-          animation: hideNav 0.3s ease-in forwards;
+          // animation: hideNav 0.3s ease-in forwards;
         }
       }
 

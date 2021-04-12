@@ -7,7 +7,7 @@ import {
   TemplateRef,
   ViewChild,
   EventEmitter,
-  SimpleChange
+  SimpleChange,
 } from '@angular/core'
 
 @Component({
@@ -16,24 +16,28 @@ import {
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-  constructor(public el: ElementRef) { }
+  constructor(public el: ElementRef) {}
 
   menuItems = [
     {
       name: 'CTA Buttons',
       breadcrumb: 'Components/',
+      url: 'components/cta-button',
     },
     {
       name: 'Round Buttons',
       breadcrumb: 'Components/',
+      url: 'components/round-button',
     },
     {
       name: 'Checkbox',
       breadcrumb: 'Components/',
+      url: 'components/cta-button',
     },
     {
       name: 'Getting Started',
       breadcrumb: 'Getting Started/',
+      url: 'components/cta-button',
     },
   ]
   searchResults: Array<any> = []
@@ -41,9 +45,9 @@ export class SearchBarComponent implements OnInit {
   @ViewChild('searchResultElement') searchResultElement: any
   @ViewChild(TemplateRef) overlay: any
   @ViewChild('searchInput') searchInput?: HTMLInputElement | null
-  @Input() search?: string = ""
+  @Input() search?: string = ''
   @Input() type?: string
-  @Output() value = new EventEmitter();
+  @Output() value = new EventEmitter()
   hideResults() {
     if (window.innerWidth < 768) return
     setTimeout(() => {
@@ -52,7 +56,7 @@ export class SearchBarComponent implements OnInit {
         this.searchResultElement.nativeElement.style.display = 'none'
       }, 300)
     }, 300)
-    this.resetSearch();
+    this.resetSearch()
   }
   showResults() {
     this.searchResultElement.nativeElement.style.display = 'inline-block'
@@ -89,7 +93,7 @@ export class SearchBarComponent implements OnInit {
       return
     }
     this.searchResults = this.menuItems.filter((e) => {
-      if (!this.search) return false;
+      if (!this.search) return false
       return e.name.toLowerCase().includes(this.search.trim().toLowerCase())
     })
 
@@ -105,12 +109,10 @@ export class SearchBarComponent implements OnInit {
   resetSearch() {
     this.searchResultElement.nativeElement.style.opacity = '0'
     setTimeout(() => {
-      this.search = ""
+      this.search = ''
       this.searchResults.length = 0
-    }, 200);
+    }, 200)
   }
-  ngOnInit(): void {
-
-  }
-  ngAfterViewInit() { }
+  ngOnInit(): void {}
+  ngAfterViewInit() {}
 }

@@ -7,7 +7,8 @@
       fill="#8D8989" />
   </svg>
   <div #searchResultElement class="searchResults">
-    <div class="searchItem" [ngClass]="{'noResults': result.error}" *ngFor="let result of searchResults">
+    <div routerLink="{{'/' + result.url||'#'}}" class="searchItem" [ngClass]="{'noResults': result.error}"
+      *ngFor="let result of searchResults">
       <div class="searchBreadcrumb">{{result.breadcrumb}}</div>
       {{result.name}}
       <svg *ngIf="!result.error" class="searchArrow" width="24" height="24" viewBox="0 0 24 24" fill="none"

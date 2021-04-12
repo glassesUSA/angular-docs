@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core'
   `,
   styleUrls: ['./mobile-background.component.scss'],
 })
-export class MobileBackgroundComponent implements OnInit {
+export class MobileBackgroundComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,5 +1,5 @@
-<div class="navigation-container"
-  [ngClass]="{'pageLoad':menuTransition, 'open': searchOpen, 'close': searchClose, 'menuClose': menuClose,  'menuOpen': menuOpen}">
+<div class="navigation-container" [ngClass]="{ 'open': searchOpen, 'close': searchClose, 'menuClose': menuClose,
+  'menuOpen': menuOpen}">
   <div class="logoWrapper" routerLink="/">
     <svg id="siteLogo" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 62">
       <path
@@ -7,29 +7,47 @@
         fill="#fff" /></svg>
   </div>
   <div class="nav">
-    <a routerLink="/" (click)="navigate()" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
       Introduction</a>
-    <a routerLink="getting-started" (click)="navigate()" routerLinkActive="active">Getting Started</a>
+    <a routerLink="getting-started" routerLinkActive="active">Getting Started</a>
     <div class="dropdown" routerLinkActive="active">
-      <a class="dropDownInner" routerLink="components" (click)="navigate()">
-        Components <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a class="dropDownInner" routerLink="components">
+        Components <svg *ngIf="!effectTriggered" width="10" height="6" viewBox="0 0 10 6" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L5 5L9 1" stroke="#D3D3D3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </a>
       <div class="dropdownNav" [ngClass]="{'closeEffect': componentsActive == true, 'openAnimation':effectTriggered}">
         <a routerLink="/components/cta-button" routerLinkActive="active">CTA Button</a>
         <a routerLink="/components/round-button" routerLinkActive="active">Round Button</a>
-        <a routerLink="/components/#" routerLinkActive="active">Toggles</a>
-        <a routerLink="/components/#" routerLinkActive="active">Forms</a>
-        <a routerLink="/components/#" routerLinkActive="active">Tooltips</a>
-        <a routerLink="/components/#" routerLinkActive="active">Badges</a>
-        <a routerLink="/components/#" routerLinkActive="active">Shadows</a>
-        <a routerLink="/components/#" routerLinkActive="active">Accordian</a>
-        <a routerLink="/components/#" routerLinkActive="active">Trustpilot</a>
+        <a routerLink="/components/toggles" routerLinkActive="active">Toggles</a>
+        <div class="dropdown dropdownForm" routerLinkActive="active">
+          <a class="dropDownInnerForm" routerLink="/components/forms">
+            Forms <svg *ngIf="!formEffectTriggered" width="10" height="6" viewBox="0 0 10 6" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="#D3D3D3" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <div class="dropdownNav"
+            [ngClass]="{'closeEffect': formComponentsActive == true, 'openAnimation':formEffectTriggered}">
+            <a routerLink="/components/forms/dropdown" routerLinkActive="active">Dropdown</a>
+            <a routerLink="/components/forms/text-area" routerLinkActive="active">Text Area</a>
+            <a routerLink="/components/forms/text-field" routerLinkActive="active">Text Field</a>
+            <a routerLink="/components/forms/radio-button" routerLinkActive="active">Radio Button</a>
+            <a routerLink="/components/forms/checkbox" routerLinkActive="active">Checkbox</a>
+            <a routerLink="/components/forms/ticked-checkbox" routerLinkActive="active">Ticked Checkbox</a>
+          </div>
+        </div>
+        <a routerLink="/components/tooltips" routerLinkActive="active">Tooltips</a>
+        <a routerLink="/components/badges" routerLinkActive="active">Badges</a>
+        <a routerLink="/components/shadows" routerLinkActive="active">Shadows</a>
+        <a routerLink="/components/accordian" routerLinkActive="active">Accordian</a>
+        <a routerLink="/components/trustpilot" routerLinkActive="active">Trustpilot</a>
       </div>
     </div>
-    <a routerLink="/logo-library" (click)="navigate()" routerLinkActive="active">Logo Library</a>
-    <a routerLink="/icon-library" (click)="navigate()" routerLinkActive="active">Icon Library</a>
+    <a routerLink="/logo-library" routerLinkActive="active">Logo Library</a>
+    <a routerLink="/icon-library" routerLinkActive="active">Icon Library</a>
   </div>
 
   <svg id="searchIcon" (click)="openSearch()" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17">
