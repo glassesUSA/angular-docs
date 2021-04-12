@@ -11,17 +11,6 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@angular/animations": "~11.2.6",
-    "@angular/common": "~11.2.6",
-    "@angular/compiler": "~11.2.6",
-    "@angular/core": "~11.2.6",
-    "@angular/forms": "~11.2.6",
-    "@angular/platform-browser": "~11.2.6",
-    "@angular/platform-browser-dynamic": "~11.2.6",
-    "@angular/router": "~11.2.6",
-    "rxjs": "~6.6.0",
-=======
     "@angular/animations": "^11.2.7",
     "@angular/common": "^11.2.7",
     "@angular/compiler": "^11.2.7",
@@ -31,24 +20,15 @@
     "@angular/platform-browser-dynamic": "^11.2.7",
     "@angular/router": "^11.2.7",
     "rxjs": "^6.6.7",
->>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@angular-devkit/build-angular": "~0.1102.5",
-    "@angular/cli": "~11.2.5",
-    "@angular/compiler-cli": "~11.2.6",
-    "@types/jasmine": "~3.6.0",
-    "@types/node": "^12.11.1",
-=======
     "@angular-devkit/build-angular": "^0.1102.6",
     "@angular/cli": "^11.2.6",
     "@angular/compiler-cli": "^11.2.7",
     "@types/jasmine": "^3.6.9",
     "@types/node": "^12.20.7",
->>>>>>> 3dacc5adeaf7067cd9038cb68d86c54a7a56f6c0
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
