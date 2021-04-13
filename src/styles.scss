@@ -24,6 +24,12 @@ pre {
   margin-left: 10px;
 }
 
+
+
+.gridTable code-box * {
+  color: #d2431e !important;
+}
+
 @media (max-width: 768px) {
   .codeContainer>* {
     margin-left: 0;
@@ -77,6 +83,13 @@ pre {
   font-weight: 300;
   font-size: 14px;
   line-height: 140.19%;
+}
+
+.iconContainer {
+  .dsmIcons {
+    width: 47px !important;
+    height: 47px !important;
+  }
 }
 
 .smallTitle {

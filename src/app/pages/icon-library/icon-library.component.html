@@ -1,0 +1,19 @@
+<page-header title="Icon Library"></page-header>
+<tabs>
+  <tab>
+    <div class="componentMaxWidth">All icons are preceded with the class <code-box [inline]=true>.dsmIcons</code-box>
+      and the related
+      icon code. Icons
+      can be coloured, resized and have any effects applied to it that a normal SVG would have. </div>
+    <code-container [icon]="iconEl">
+    </code-container>
+    <div class="smallTitle">Icon Options</div>
+    <div class="iconGrid" #grid>
+      <div class="iconContainer" *ngFor="let icon of icons" (click)="copyIcon($event)">
+        <div class="dsmIcons {{icon}}"></div>
+        <div class="iconClass">{{icon}}</div>
+      </div>
+    </div>
+
+  </tab>
+</tabs>

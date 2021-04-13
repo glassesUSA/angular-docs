@@ -57,14 +57,37 @@
   background: #FFFFFF;
   box-sizing: border-box;
   border-radius: 0px 0px 5px 5px;
+  overflow: auto;
   font-family: Roboto;
   font-style: normal;
+  max-height: 316px;
   transition: 0.3s all;
   font-weight: normal;
   font-size: 16px;
   width: 100%;
   line-height: 21px;
+  z-index: 14;
   color: #000000;
+  scrollbar-color: white grey;
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: grey;
+  }
+
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-track-piece {
+    background: transparent
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.4em;
+    border-bottom: 1px solid rgba(188, 188, 188, 0.4);
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: transparent;
+
+  }
 
   @media (max-width: 1000px) {
     top: 69px;

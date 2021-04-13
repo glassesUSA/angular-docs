@@ -15,11 +15,15 @@ import { TogglesComponent } from './pages/components/toggles.component'
 import { TooltipsComponent } from './pages/components/tooltips.component'
 import { TrustpilotComponent } from './pages/components/trustpilot.component'
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component'
+import { IconLibraryComponent } from './pages/icon-library/icon-library.component'
 import { IntroductionComponent } from './pages/introduction/introduction.component'
+import { LogoLibraryComponent } from './pages/logo-library/logo-library.component'
 
 const routes: Routes = [
   { path: '', component: IntroductionComponent, pathMatch: 'full' },
   { path: 'getting-started', component: GettingStartedComponent },
+  { path: 'logo-library', component: LogoLibraryComponent },
+  { path: 'icon-library', component: IconLibraryComponent },
   {
     path: 'components',
     children: [

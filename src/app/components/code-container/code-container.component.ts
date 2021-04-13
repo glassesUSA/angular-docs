@@ -2,11 +2,12 @@ import {
   Component,
   ContentChild,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from '@angular/core'
 import { loadElements } from '../../dsm-effects.js'
-import { NavigationEnd, Router } from '@angular/router'
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { filter } from 'rxjs/operators'
 import * as beautify from 'js-beautify'
 import * as htmlparser2 from 'htmlparser2'
@@ -68,12 +69,25 @@ declare let hljs: any
 export class CodeContainerComponent implements OnInit {
   currentCode: any
   codeContent: any
+  @Input() icon?: any
   beautifySettings = {
     wrap_line_length: '70',
   }
   originalCode: any
   currentURL
-  constructor(private router: Router, public el: ElementRef) {
+  constructor(
+    private router: Router,
+    public el: ElementRef,
+    private active: ActivatedRoute,
+  ) {
+    this.active.params.subscribe((a) => {
+      if (Object.keys(a).length > 0) {
+        setTimeout(() => {
+          if (document.querySelector('.swiper-outer')) return
+          loadElements()
+        }, 40)
+      }
+    })
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(({ url }) => {
@@ -85,10 +99,28 @@ export class CodeContainerComponent implements OnInit {
   @ViewChild('codeContainer') codeContainer: any
   @ViewChild('codeEditor') codeElement: any
   @ViewChild('codeBox') codeBox: any
-
+  ngOnChanges() {
+    if (this.icon && this.codeContainer) {
+      this.codeContainer.nativeElement.innerHTML = this.icon
+      this.codeContent = this.codeContainer.nativeElement.innerHTML
+      if (this.codeElement && this.codeContainer) {
+        this.codeElement.nativeElement.innerText = beautify.html(
+          this.beautifyFormat(this.codeContent),
+          this.beautifySettings,
+        )
+      }
+      this.copyCode()
+      loadElements()
+      hljs.highlightBlock(this.codeElement.nativeElement)
+    }
+  }
   ngAfterViewInit() {
+    if (this.icon) {
+      this.codeContainer.nativeElement.innerHTML = this.icon
+    }
+
     this.codeContainer.nativeElement.innerHTML = this.codeContainer.nativeElement.innerHTML.replace(
-      /(<pre>)|(<\/pre>)/g,
+      /(<pre>)|(<\/pre>|(_ngcontent.+?""))/g,
       '',
     )
     this.codeContent = this.codeContainer.nativeElement.innerHTML
@@ -104,13 +136,15 @@ export class CodeContainerComponent implements OnInit {
 
     if (this.currentURL.includes('trustpilot')) {
       this.codeContainer.nativeElement.innerHTML = ''
+      this.codeContainer.nativeElement.innerHTML = this.codeContent
+      this.originalCode = this.codeContainer.nativeElement.innerHTML
       setTimeout(() => {
-        this.codeContainer.nativeElement.innerHTML = this.codeContent
-        this.originalCode = this.codeContainer.nativeElement.innerHTML
+        if (document.querySelector('.swiper-outer')) return
         loadElements()
-      }, 200)
+      }, 120)
     } else {
       this.originalCode = this.codeContainer.nativeElement.innerHTML
+
       setTimeout(() => {
         loadElements()
       }, 10)
@@ -148,6 +182,7 @@ export class CodeContainerComponent implements OnInit {
           console.log(attributes)
 
           for (let key in attributes) {
+            if (key.includes('_ngcontent')) return
             props += ` ${key}="${attributes[key]}"`
           }
 
@@ -179,7 +214,7 @@ export class CodeContainerComponent implements OnInit {
         document.removeEventListener('click', this.listener, false)
         let element = this.stripChars(this.codeElement.nativeElement.innerHTML)
         if (this.currentURL.includes('trustpilot')) {
-          this.codeContainer.nativeElement.innerText = this.codeContent
+          this.codeContainer.nativeElement.innerHTML = element
           loadElements()
         }
         this.codeElement.nativeElement.innerHTML = element

@@ -30,14 +30,74 @@ export class SearchBarComponent implements OnInit {
       url: 'components/round-button',
     },
     {
-      name: 'Checkbox',
+      name: 'Toggles',
       breadcrumb: 'Components/',
-      url: 'components/cta-button',
+      url: 'components/toggles',
+    },
+    {
+      name: 'Dropdown',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/dropdown',
+    },
+    {
+      name: 'Text Area',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/text-area',
+    },
+    {
+      name: 'Text Field',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/text-field',
+    },
+    {
+      name: 'Radio Button',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/radio-button',
+    },
+    {
+      name: 'Ticked Checkbox',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/ticked-checkbox',
+    },
+    {
+      name: 'Checkbox',
+      breadcrumb: 'Components/Form/',
+      url: 'components/form/checkbox',
     },
     {
       name: 'Getting Started',
       breadcrumb: 'Getting Started/',
-      url: 'components/cta-button',
+      url: 'getting-started',
+    },
+    {
+      name: 'Introduction',
+      breadcrumb: 'Introduction/',
+      url: 'introduction',
+    },
+    {
+      name: 'Tooltips',
+      breadcrumb: 'Components/',
+      url: 'components/tooltips',
+    },
+    {
+      name: 'Badges',
+      breadcrumb: 'Components/',
+      url: 'components/badges',
+    },
+    {
+      name: 'Shadows',
+      breadcrumb: 'Components/',
+      url: 'components/shadows',
+    },
+    {
+      name: 'Accordian',
+      breadcrumb: 'Components/',
+      url: 'components/accordian',
+    },
+    {
+      name: 'Trustpilot',
+      breadcrumb: 'Components/',
+      url: 'components/trustpilot',
     },
   ]
   searchResults: Array<any> = []
@@ -56,7 +116,6 @@ export class SearchBarComponent implements OnInit {
         this.searchResultElement.nativeElement.style.display = 'none'
       }, 300)
     }, 300)
-    this.resetSearch()
   }
   showResults() {
     this.searchResultElement.nativeElement.style.display = 'inline-block'

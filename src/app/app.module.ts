@@ -26,7 +26,9 @@ import { TickedCheckboxComponent } from './pages/components/forms/ticked-checkbo
 import { TooltipsComponent } from './pages/components/tooltips.component'
 import { BadgesComponent } from './pages/components/badges.component'
 import { ShadowsComponent } from './pages/components/shadows.component'
-import { AccordianComponent } from './pages/components/accordian.component'
+import { AccordianComponent } from './pages/components/accordian.component';
+import { LogoLibraryComponent } from './pages/logo-library/logo-library.component';
+import { IconLibraryComponent } from './pages/icon-library/icon-library.component'
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AccordianComponent } from './pages/components/accordian.component'
     BadgesComponent,
     ShadowsComponent,
     AccordianComponent,
+    LogoLibraryComponent,
+    IconLibraryComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
