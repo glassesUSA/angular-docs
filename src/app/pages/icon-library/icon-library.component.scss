@@ -8,9 +8,23 @@
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
+
+}
+
+.copiedBox {
+  position: absolute;
+  bottom: -100px;
+  background-color: #00B16A;
+  padding: 5px 10px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  transition: 0.2s bottom;
 }
 
 .iconContainer {
+  overflow: hidden;
+  position: relative;
   background: white;
   display: flex;
   justify-content: center;
@@ -21,6 +35,8 @@
   border-left: none;
   border-bottom: 0;
   transition: 0.3s all;
+
+
 
   @media (max-width: 768px) {
     padding: 0;

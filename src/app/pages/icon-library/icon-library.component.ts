@@ -45,6 +45,11 @@ export class IconLibraryComponent {
   }
   iconEl = `<div class="dsmIcons arrow-left"></div>`
   copyIcon(e) {
+    let el = e.target.closest('.iconContainer')
+    el.querySelector('.copiedBox').style.bottom = 0
+    setTimeout(() => {
+      el.querySelector('.copiedBox').removeAttribute('style')
+    }, 800)
     this.iconEl = `<div class="${
       e.target.closest('.iconContainer').querySelector('.dsmIcons').classList
         .value
