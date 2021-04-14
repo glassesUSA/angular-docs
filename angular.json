@@ -124,7 +124,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/angular-docs/"
+            "baseHref": "/dsm-docs/"
           }
         }
       }
