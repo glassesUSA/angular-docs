@@ -1,8 +1,13 @@
 body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   font-family: Roboto;
   background-color: #F8F8F8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -19,7 +24,7 @@ pre {
   padding: 20px;
 }
 
-.codeContainer>* {
+.codeContainer .dsmButton {
   margin-bottom: 10px;
   margin-left: 10px;
 }
@@ -37,6 +42,7 @@ pre {
 
   .codeContainer>*.dsmButton {
     width: 100%;
+    margin-left: 0;
   }
 
   .codeContainer>*.dsmSlider {
@@ -65,13 +71,17 @@ pre {
 
 .codeContainer>*:nth-child(n+2) {
   margin-left: 10px;
-  margin-bottom: 10px;
+
+  &.dsmButton {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
 @media (max-width: 768px) {
-  .codeContainer>*:nth-child(n+2) {
-    width: 100%;
-    margin-left: 0;
+  .codeContainer>* {
+    margin-left: 0 !important;
+    margin-right: 10px;
   }
 
   .codeContainer>*:nth-child(n+2).dsmSlider {
@@ -89,6 +99,11 @@ pre {
   .dsmIcons {
     width: 47px !important;
     height: 47px !important;
+  }
+
+  .dsmLogo {
+    height: 47px;
+    width: 100%;
   }
 }
 

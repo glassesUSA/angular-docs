@@ -9,7 +9,7 @@
   <div class="nav">
     <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
       Introduction</a>
-    <a routerLink="getting-started" routerLinkActive="active">Getting Started</a>
+    <a routerLink="getting-started" routerLinkActive="active" (click)="setTitle('Getting Started')">Getting Started</a>
     <div class="dropdown" routerLinkActive="active">
       <a class="dropDownInner" routerLink="components">
         Components <svg *ngIf="!effectTriggered" width="10" height="6" viewBox="0 0 10 6" fill="none"

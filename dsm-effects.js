@@ -1,1 +1,0 @@
-../dist/dsm-effects.js

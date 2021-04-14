@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
+import { loadElements } from '../../dsm-effects.js'
 
 @Component({
   selector: 'icon-library',
@@ -6,7 +7,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
   styleUrls: ['./icon-library.component.scss'],
 })
 export class IconLibraryComponent {
-  constructor() {}
+  constructor() { }
   icons = [
     'app',
     'approve_circle',
@@ -42,6 +43,7 @@ export class IconLibraryComponent {
     window.addEventListener('resize', (event) => {
       this.addBlanks()
     })
+    loadElements();
   }
   iconEl = `<div class="dsmIcons arrow-left"></div>`
   copyIcon(e) {
@@ -50,10 +52,9 @@ export class IconLibraryComponent {
     setTimeout(() => {
       el.querySelector('.copiedBox').removeAttribute('style')
     }, 800)
-    this.iconEl = `<div class="${
-      e.target.closest('.iconContainer').querySelector('.dsmIcons').classList
-        .value
-    }"></div>`
+    this.iconEl = `<div class="${e.target.closest('.iconContainer').querySelector('.dsmIcons').classList
+      .value
+      }"></div>`
   }
 
   addBlanks() {
@@ -71,7 +72,9 @@ export class IconLibraryComponent {
     let emptyCell = document.createElement('div')
     emptyCell.classList.add('iconContainer')
 
-    while (numberOfIcons == false) {
+    let count = 0
+    while (numberOfIcons == false && count != 10) {
+      count++
       let el = this.grid.nativeElement
         .querySelector('.iconContainer')
         .cloneNode()

@@ -285,5 +285,5 @@ export class CodeContainerComponent implements OnInit {
     input.remove()
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

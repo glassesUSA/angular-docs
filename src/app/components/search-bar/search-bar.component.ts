@@ -16,7 +16,7 @@ import {
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-  constructor(public el: ElementRef) {}
+  constructor(public el: ElementRef) { }
 
   menuItems = [
     {
@@ -36,33 +36,33 @@ export class SearchBarComponent implements OnInit {
     },
     {
       name: 'Dropdown',
-      breadcrumb: 'Components/Form/',
-      url: 'components/form/dropdown',
+      breadcrumb: 'Components/Forms/',
+      url: 'components/forms/dropdown',
     },
     {
       name: 'Text Area',
-      breadcrumb: 'Components/Form/',
-      url: 'components/form/text-area',
+      breadcrumb: 'Components/Forms/',
+      url: 'components/forms/text-area',
     },
     {
       name: 'Text Field',
-      breadcrumb: 'Components/Form/',
-      url: 'components/form/text-field',
+      breadcrumb: 'Components/Forms/',
+      url: 'components/forms/text-field',
     },
     {
       name: 'Radio Button',
-      breadcrumb: 'Components/Form/',
-      url: 'components/form/radio-button',
+      breadcrumb: 'Components/Forms/',
+      url: 'components/forms/radio-button',
     },
     {
       name: 'Ticked Checkbox',
-      breadcrumb: 'Components/Form/',
-      url: 'components/form/ticked-checkbox',
+      breadcrumb: 'Components/Forms/',
+      url: 'components/forms/ticked-checkbox',
     },
     {
       name: 'Checkbox',
       breadcrumb: 'Components/Form/',
-      url: 'components/form/checkbox',
+      url: 'components/forms/checkbox',
     },
     {
       name: 'Getting Started',
@@ -98,6 +98,16 @@ export class SearchBarComponent implements OnInit {
       name: 'Trustpilot',
       breadcrumb: 'Components/',
       url: 'components/trustpilot',
+    },
+    {
+      name: 'Icon Library',
+      breadcrumb: 'Icon Library/',
+      url: 'icon-library',
+    },
+    {
+      name: 'Logo Library',
+      breadcrumb: 'Logo Library/',
+      url: 'logo-library',
     },
   ]
   searchResults: Array<any> = []
@@ -172,6 +182,6 @@ export class SearchBarComponent implements OnInit {
       this.searchResults.length = 0
     }, 200)
   }
-  ngOnInit(): void {}
-  ngAfterViewInit() {}
+  ngOnInit(): void { }
+  ngAfterViewInit() { }
 }

@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Inject,
 } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { NavigationEnd, NavigationStart, Router } from '@angular/router'
 import { filter } from 'rxjs/operators'
 
@@ -30,13 +31,32 @@ export class NavigationComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    public router: Router,
-  ) {}
+    public router: Router, private title: Title
+  ) { }
+  public baseURL = "GlassesUSA DSM"
 
+  public setTitle(title?) {
+    if (!title) title = ""
+    this.title.setTitle(`${this.baseURL} ${title}`)
+  }
   ngOnInit() {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(({ url }) => {
+        if (url.trim().length > 1) {
+          this.setTitle(' | ' + url.trim().split('/').slice(-1)[0].replace(/-/g, ' ').replace(
+            /\w\S*/g,
+            function (txt) {
+              return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+          ));
+        } else {
+          this.setTitle()
+        }
+        window.scrollTo(0, 0)
+        if (document.body.style.overflow == 'hidden') {
+          this.document.body.style.overflow = ''
+        }
         if (url.trim().split('/').length > 2 || !url.includes('components')) {
           if (!url.includes('forms') || url.trim().split('/').length != 3) {
             this.searchOpen = false
@@ -75,10 +95,12 @@ export class NavigationComponent {
     if (this.menuOpen) {
       this.menuOpen = false
       this.menuClose = true
+      this.document.body.style.overflow = ''
+    } else {
+      this.document.body.style.overflow = 'hidden'
+      this.searchClose = false
+      this.searchOpen = true
     }
-    this.document.body.style.overflow = 'hidden'
-    this.searchClose = false
-    this.searchOpen = true
   }
 
   closeSearch() {
@@ -98,6 +120,7 @@ export class NavigationComponent {
       this.menuClose = false
       this.document.body.style.overflow = 'hidden'
     } else {
+      this.document.body.style.overflow = ''
       this.menuOpen = false
       this.menuClose = true
       setTimeout(() => {

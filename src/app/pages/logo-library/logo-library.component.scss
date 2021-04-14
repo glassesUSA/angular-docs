@@ -1,0 +1,60 @@
+.iconGrid {
+  margin-top: 31px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+  border-left: 1.5px solid #F1F1F1;
+  border-bottom: 1.5px solid #F1F1F1;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+}
+
+.copiedBox {
+  position: absolute;
+  bottom: -100px;
+  background-color: #00B16A;
+  padding: 5px 10px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  transition: 0.2s bottom;
+}
+
+.iconContainer {
+  overflow: hidden;
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 55px 44px;
+  border: 1.5px solid #F1F1F1;
+  border-left: none;
+  border-bottom: 0;
+  transition: 0.3s all;
+
+
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    min-height: 120px;
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: #F8F8F8;
+  }
+
+  .iconClass {
+    margin-top: 9px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
