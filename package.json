@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^11.2.7",
     "@angular/platform-browser-dynamic": "^11.2.7",
     "@angular/router": "^11.2.7",
+    "@glassesusa/dsm": "^2.0.1",
     "htmlparser2": "^6.1.0",
     "js-beautify": "^1.13.11",
     "rxjs": "^6.6.7",

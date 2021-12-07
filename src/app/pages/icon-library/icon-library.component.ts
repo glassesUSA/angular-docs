@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { loadElements } from '../../dsm-effects.js'
+import * as dsm from '@glassesusa/dsm/dist/dsm-effects.js'
 
 @Component({
   selector: 'icon-library',
@@ -7,7 +7,7 @@ import { loadElements } from '../../dsm-effects.js'
   styleUrls: ['./icon-library.component.scss'],
 })
 export class IconLibraryComponent {
-  constructor() { }
+  constructor() {}
   icons = [
     'app',
     'approve_circle',
@@ -43,7 +43,11 @@ export class IconLibraryComponent {
     window.addEventListener('resize', (event) => {
       this.addBlanks()
     })
-    loadElements();
+    console.log('hi')
+
+    console.log('reload', dsm)
+
+    // reloadElements()
   }
   iconEl = `<div class="dsmIcons arrow-left"></div>`
   copyIcon(e) {
@@ -52,9 +56,10 @@ export class IconLibraryComponent {
     setTimeout(() => {
       el.querySelector('.copiedBox').removeAttribute('style')
     }, 800)
-    this.iconEl = `<div class="${e.target.closest('.iconContainer').querySelector('.dsmIcons').classList
-      .value
-      }"></div>`
+    this.iconEl = `<div class="${
+      e.target.closest('.iconContainer').querySelector('.dsmIcons').classList
+        .value
+    }"></div>`
   }
 
   addBlanks() {

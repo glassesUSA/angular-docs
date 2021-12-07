@@ -47,12 +47,26 @@ const routes: Routes = [
           { path: 'text-field', component: TextFieldComponent },
           { path: 'radio-button/:id', component: RadioButtonComponent },
           { path: 'radio-button', component: RadioButtonComponent },
+          { path: 'checkbox/:id', component: CheckboxComponent },
           { path: 'checkbox', component: CheckboxComponent },
           { path: 'ticked-checkbox', component: TickedCheckboxComponent },
           { path: '', redirectTo: 'dropdown', pathMatch: 'full' },
         ],
       },
       { path: '', redirectTo: 'cta-button', pathMatch: 'full' },
+    ],
+  },
+  {
+    path: 'foundation',
+    children: [
+      {
+        path: 'logo',
+        children: [],
+      },
+      {
+        path: 'content',
+        children: [],
+      },
     ],
   },
   {
@@ -67,6 +81,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

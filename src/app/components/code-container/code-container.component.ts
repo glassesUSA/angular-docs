@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
-import { loadElements } from '../../dsm-effects.js'
+import { loadElements } from '@glassesusa/dsm/dist/dsm-effects.js'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { filter } from 'rxjs/operators'
 import * as beautify from 'js-beautify'
@@ -285,5 +285,5 @@ export class CodeContainerComponent implements OnInit {
     input.remove()
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

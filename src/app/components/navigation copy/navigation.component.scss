@@ -1,0 +1,591 @@
+.navigation-container {
+  background: #030622;
+  height: 100vh;
+  width: 280px;
+  transition: 0.5s width ease-out;
+
+  a {
+    letter-spacing: 0.3px;
+  }
+
+  @media (min-width: 1001px) {
+    overflow: auto;
+  }
+
+  &.pageLoad {
+    width: 100vw;
+  }
+
+  .navTitle {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    padding: 0 36px;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 12px;
+
+    &:nth-child(n+2) {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .dropdown .dropdownNav {
+    margin: 10px 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  .closeEffect {
+    animation: smoothClose 0.3s ease-in forwards;
+  }
+
+  .dropdown {
+    border-left: none;
+    padding: 0 !important;
+  }
+
+  .nav {
+    overflow: auto;
+  }
+
+  .dropDownInner {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px 31px;
+    padding-right: 36px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .dropDownInnerForm {
+    display: flex !important;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .dropdownForm.active {
+    background-color: transparent !important;
+
+    .dropDownInnerForm {
+      font-weight: bold;
+      color: white !important;
+      pointer-events: none;
+    }
+
+    .dropdownNav {
+      border-left: 1px solid #617690;
+      margin: 10px 0;
+      margin-left: 56px;
+
+
+      a {
+        padding: 8px 16px;
+        letter-spacing: 0.3px;
+        transition: 0.3s color;
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: white;
+        }
+      }
+
+      @media (max-width: 1000px) {
+        border-width: 4px;
+        padding: 15px 0;
+        margin: 0;
+        border-top: rgba(62, 82, 105, 0.4) solid 1px;
+
+        a {
+          padding: 15px 40px;
+          border-top: none;
+
+          &:last-child {
+            padding-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown.active {
+    padding: 0 !important;
+    background-color: rgba(152, 186, 237, 0.12);
+
+    .openAnimation {
+      animation: smoothOpen 0.5s ease-in forwards;
+    }
+
+    .dropdownNav {
+      padding-bottom: 13px;
+
+      @media (max-width: 1000px) {
+        padding-bottom: 0;
+      }
+    }
+
+    .dropDownInner {
+      color: white !important;
+      pointer-events: none;
+      font-weight: 500;
+    }
+  }
+
+  .dropdownForm .dropdownNav {
+    padding-bottom: 0 !important;
+  }
+
+
+  .nav .dropdown {
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 10px 50px;
+      padding-right: 36px;
+      color: #D3D3D3;
+      font-size: 15px;
+
+      @media (max-width: 1000px) {
+        padding: 25px 30px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      &.dropDownInner {
+        display: flex;
+        font-size: 18px;
+        padding: 15px 36px;
+
+        @media (max-width: 1000px) {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          padding: 25px;
+        }
+
+        border-bottom: none;
+        line-height: 21px;
+      }
+
+      &.active {
+        background-color: transparent;
+        font-weight: bold;
+        color: white;
+      }
+    }
+
+
+    @keyframes smoothOpen {
+      0% {
+        opacity: 0;
+        max-height: 0px;
+      }
+
+      70% {
+        opacity: 1;
+      }
+
+      100% {
+        max-height: 1000px
+      }
+    }
+  }
+
+  .closeDropdown {
+    animation: smoothClose 0.5s ease-in forwards;
+  }
+
+  @keyframes smoothClose {
+    0% {
+      opacity: 1;
+      max-height: 1000px;
+    }
+
+    80% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+      max-height: 0px
+    }
+  }
+
+  .nav {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+
+    a,
+    .dropdownContainer {
+      display: block;
+      text-decoration: none;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      padding: 15px 36px;
+      line-height: 21px;
+      color: #D3D3D3;
+      cursor: pointer;
+      transition: 0.3s background-color;
+
+      &.active {
+        font-weight: 500;
+        color: white;
+        background-color: rgba(152, 186, 237, 0.12);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba(152, 186, 237, 0.12);
+        }
+      }
+    }
+  }
+
+  search-bar:first-of-type,
+  mobile-background:first-of-type {
+    position: absolute;
+    top: -100px;
+    transform: rotateX(180deg);
+  }
+
+  search-bar:first-of-type {
+    position: absolute;
+    width: 100%;
+    display: block;
+    opacity: 0;
+    left: 0;
+    z-index: 2;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+  }
+
+  @media (max-width: 1000px) {
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr auto auto;
+    padding: 15px 25px;
+    perspective: 1000px;
+
+    .nav {
+      display: none;
+      z-index: 10;
+      height: 100%;
+    }
+
+
+    &.open {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+
+      search-bar:first-of-type {
+        position: absolute;
+        width: 100%;
+        display: block;
+        top: 0;
+        opacity: 1;
+        left: 0;
+        z-index: 2;
+        backface-visibility: hidden;
+        animation: openView 0.3s ease-in-out;
+        transform: rotateX(0);
+      }
+
+      mobile-background:first-of-type {
+        display: block;
+        animation: openBackground 0.4s ease-in;
+        transform: rotateX(0);
+        width: 100%;
+        display: block;
+        top: 0;
+        opacity: 1;
+        left: 0;
+      }
+    }
+
+    &.close {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+
+      search-bar:first-of-type {
+        position: absolute;
+        width: 100%;
+        display: block;
+        top: 0;
+        opacity: 1;
+        left: 0;
+        z-index: 2;
+        backface-visibility: hidden;
+        animation: closeView 0.3s ease-in;
+        transform: rotateX(180deg);
+      }
+
+      mobile-background:first-of-type {
+        display: block;
+        animation: closeView 0.3s ease-in forwards;
+        transform: rotateX(180deg);
+        position: absolute;
+        width: 100%;
+        display: block;
+        top: 0;
+        opacity: 1;
+        left: 0;
+      }
+    }
+
+    @keyframes openView {
+      from {
+        opacity: 0;
+        transform: rotateX(180deg);
+        transform-style: preserve-3d;
+      }
+
+      to {
+        display: block;
+        opacity: 1;
+        transform: rotateX(0);
+        transform-style: preserve-3d;
+      }
+    }
+
+    @keyframes openBackground {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @keyframes closeView {
+      from {
+        opacity: 1;
+        display: block;
+        transform: rotateX(0);
+        transform-style: preserve-3d;
+      }
+
+      to {
+        display: none;
+        opacity: 0;
+        transform: rotateX(180deg);
+        transform-style: preserve-3d;
+      }
+    }
+
+    &.menuOpen {
+      background: rgb(3, 6, 34, 0.97);
+
+      .nav {
+        margin-top: 0;
+        display: block;
+        position: absolute;
+        top: 70px;
+        animation: openMenu 0.2s ease-in;
+        background: rgb(3, 6, 34, 0.97);
+        height: calc(100vh - 70px);
+        width: 100%;
+
+        a {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          animation: fadeItems 0.6s linear forwards;
+          line-height: 19px;
+          padding: 25px;
+          border-top: rgba(62, 82, 105, 0.4) solid 1px;
+          color: #FFFFFF;
+        }
+
+        :last-child {
+          border-bottom: rgba(62, 82, 105, 0.4) solid 1px;
+        }
+      }
+
+      @keyframes openMenu {
+        from {
+          display: none;
+          height: 0;
+        }
+
+        to {
+          display: block;
+          height: calc(100vh - 70px);
+        }
+      }
+    }
+
+    &.menuClose {
+      background: rgb(3, 6, 34, 0.97);
+
+      .nav {
+        margin-top: 0;
+        position: absolute;
+        top: 70px;
+        display: block;
+        animation: closeMenu 0.3s ease-in forwards;
+        background: rgb(3, 6, 34, 0.97);
+        width: 100%;
+
+        a {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          padding: 25px;
+          border-top: transparent solid 1px;
+          color: #FFFFFF;
+          // animation: hideNav 0.3s ease-in forwards;
+        }
+      }
+
+      @keyframes hideNav {
+        from {
+          opacity: 1;
+          visibility: visible;
+          height: 100%;
+        }
+
+        to {
+          opacity: 0;
+          visibility: hidden;
+          height: 0;
+        }
+      }
+
+      @keyframes fadeItems {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes closeMenu {
+        from {
+          height: calc(100vh - 70px);
+        }
+
+        to {
+          height: 0;
+        }
+      }
+    }
+  }
+}
+
+#menuIcon {
+  display: none;
+  cursor: pointer;
+  transition: 0.3s opacity;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    margin-left: 22px;
+  }
+}
+
+#searchIcon {
+  display: none;
+  cursor: pointer;
+  transition: 0.3s opacity;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.logoWrapper {
+  width: 100%;
+  padding: 28px 36px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 1000px) {
+    padding-bottom: 0;
+    width: auto;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  svg {
+    transition: 0.3s all;
+    cursor: pointer;
+    max-width: 142px;
+
+    @media (max-width: 1000px) {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

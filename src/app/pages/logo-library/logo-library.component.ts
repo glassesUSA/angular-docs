@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { loadElements } from '../../dsm-effects.js'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { loadElements } from '@glassesusa/dsm/dist/dsm-effects.js'
 
 @Component({
   selector: 'logo-library',
   templateUrl: './logo-library.component.html',
-  styleUrls: ['./logo-library.component.scss']
+  styleUrls: ['./logo-library.component.scss'],
 })
 export class LogoLibraryComponent implements OnInit {
   icons = [
@@ -89,9 +89,10 @@ export class LogoLibraryComponent implements OnInit {
     setTimeout(() => {
       el.querySelector('.copiedBox').removeAttribute('style')
     }, 800)
-    this.logoEl = `<div class="${e.target.closest('.iconContainer').querySelector('.dsmLogo').classList
-      .value
-      }"></div>`
+    this.logoEl = `<div class="${
+      e.target.closest('.iconContainer').querySelector('.dsmLogo').classList
+        .value
+    }"></div>`
   }
 
   addBlanks() {
@@ -121,9 +122,7 @@ export class LogoLibraryComponent implements OnInit {
       )
     }
   }
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

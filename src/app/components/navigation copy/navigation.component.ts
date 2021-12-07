@@ -17,14 +17,6 @@ import { filter } from 'rxjs/operators'
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-  startEffectComponents = false
-  closeEffectComponents = false
-  startEffectForm = false
-  closeEffectForm = false
-  closeEffectLogo = false
-  startEffectLogo = false
-  closeEffectContent = false
-  startEffectContent = false
   componentsActive = false
   formComponentsActive = false
   searchOpen = false
@@ -74,77 +66,47 @@ export class NavigationComponent {
           this.setTitle()
         }
         window.scrollTo(0, 0)
-        this.menuOpen = false
         if (document.body.style.overflow == 'hidden') {
           this.document.body.style.overflow = ''
         }
+        if (url.trim().split('/').length > 2 || !url.includes('components')) {
+          if (!url.includes('forms') || url.trim().split('/').length != 3) {
+            this.searchOpen = false
+            this.searchClose = true
+            this.defaultValue = ''
+            this.menuOpen = false
+            this.menuClose = true
+          }
+        }
 
         if (url.includes('components')) {
-          this.closeEffectComponents = false
-          this.closeEffectForm = false
-
-          if (this.startEffectComponents == false) {
-            setTimeout(() => {
-              this.startEffectComponents = true
-            }, 10)
+          this.componentsActive = true
+          if (!this.effectTriggered) {
+            this.effectTriggered = true
           }
           if (url.includes('forms')) {
-            if (this.startEffectForm == false) {
-              setTimeout(() => {
-                this.startEffectForm = true
-              }, 10)
+            this.formComponentsActive = true
+            if (!this.formEffectTriggered) {
+              this.formEffectTriggered = true
             }
           } else {
-            if (this.startEffectForm == true) {
-              setTimeout(() => {
-                this.closeEffectForm = true
-              }, 10)
-              this.startEffectForm = false
-            }
+            this.formEffectTriggered = false
           }
         } else {
-          if (this.startEffectComponents) {
-            this.startEffectComponents = false
+          this.formEffectTriggered = false
+          this.effectTriggered = false
 
-            setTimeout(() => {
-              this.closeEffectComponents = true
-            }, 10)
-          }
-
-          if (this.startEffectForm) {
-            this.startEffectForm = false
-            setTimeout(() => {
-              this.closeEffectForm = true
-            }, 10)
-          }
-
-          if (url.includes('logo')) {
-            this.closeEffectLogo = false
-
-            if (this.startEffectLogo == false) {
-              setTimeout(() => {
-                this.startEffectLogo = true
-              }, 10)
+          if (url.includes('foundation')) {
+            this.logoActive = true
+            if (!this.logoEffectTriggered) {
+              this.logoEffectTriggered = true
             }
-          } else if (this.startEffectLogo && !this.closeEffectLogo) {
-            this.startEffectLogo = false
-            setTimeout(() => {
-              this.closeEffectLogo = true
-            }, 10)
           }
           if (url.includes('content')) {
-            this.closeEffectContent = false
-
-            if (this.startEffectContent == false) {
-              setTimeout(() => {
-                this.startEffectContent = true
-              }, 10)
+            this.contentActive = true
+            if (!this.contentEffectTriggered) {
+              this.contentEffectTriggered = true
             }
-          } else if (this.startEffectContent) {
-            this.startEffectContent = false
-            setTimeout(() => {
-              this.closeEffectContent = true
-            }, 10)
           }
         }
       })
@@ -176,6 +138,8 @@ export class NavigationComponent {
   }
 
   openMenu() {
+    console.log(this.menuOpen)
+
     if (this.menuOpen == false) {
       this.menuOpen = true
       this.menuClose = false
