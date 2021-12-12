@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: Roboto;
+  background-color: #F8F8F8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+pre {
+  margin: 0;
+  overflow: auto;
+}
+
+.codeContainer .dsmShadow {
+  padding: 20px;
+}
+
+.codeContainer .dsmButton {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.gridTable code-box * {
+  color: #d2431e !important;
+}
+
+@media (max-width: 768px) {
+  .codeContainer > * {
+    margin-left: 0;
+  }
+
+  .codeContainer > *.dsmButton {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .codeContainer > *.dsmSlider {
+    width: 36px;
+    margin-right: 10px;
+  }
+}
+
+.clickLoad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 !important;
+  padding: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.codeContainer > *:nth-child(n+2) {
+  margin-left: 10px;
+}
+
+.codeContainer > *:nth-child(n+2).dsmButton {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .codeContainer > * {
+    margin-left: 0 !important;
+    margin-right: 10px;
+  }
+
+  .codeContainer > *:nth-child(n+2).dsmSlider {
+    width: 36px;
+  }
+}
+
+:host {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 140.19%;
+}
+
+.iconContainer .dsmIcons {
+  width: 47px !important;
+  height: 47px !important;
+}
+
+.iconContainer .dsmLogo {
+  height: 47px;
+  width: 100%;
+}
+
+.smallTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 11px;
+  line-height: 16px;
+}
+
+.componentMaxWidth {
+  max-width: 719px;
+}
+
+/*# sourceMappingURL=styles.css.map*/
